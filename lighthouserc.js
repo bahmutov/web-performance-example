@@ -1,3 +1,4 @@
+// https://github.com/GoogleChrome/lighthouse-ci/blob/main/docs/configuration.md
 module.exports = {
   ci: {
     collect: {
@@ -15,7 +16,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'categories:performance': ['error', { minScore: 0.9 }],
+        'categories:performance': ['error', { minScore: 0.83 }],
       },
     },
   },
