@@ -2,6 +2,8 @@
 
 > Playing with web performance metrics
 
+📝 Read the blog post [Trying Lighthouse](https://glebbahmutov.com/blog/trying-lighthouse/)
+
 Start the local site, measure its performance, and save report with one command:
 
 ```
