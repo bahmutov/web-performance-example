@@ -1,9 +1,11 @@
 name: performance
+# run performance testing on main branch
+# and on any pull request to the main branch
 on:
   pull_request:
+    branches: [main]
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
   lhci:
     name: Lighthouse
