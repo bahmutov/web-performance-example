@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "perf": "lighthouse http://localhost:3003 --preset=desktop --only-categories=performance --no-enable-error-reporting",
+    "perf": "lighthouse http://localhost:3003 --budget-path=budget.json --output html,csv --output-path=./lighthouse-results.html --preset=desktop --only-categories=performance --max-wait-for-load=6000 --skip-audits --no-enable-error-reporting",
     "measure": "start-test 3003 perf",
     "start": "node ./server",
     "watch": "nodemon ./server"
