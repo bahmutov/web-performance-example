@@ -6,16 +6,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve public",
     "perf": "lighthouse http://localhost:3000 --only-categories=performance --no-enable-error-reporting",
-    "measure": "start-test 3000 perf"
+    "measure": "start-test 3000 perf",
+    "start": "node ./server",
+    "watch": "nodemon ./server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "lighthouse": "^10.3.0",
-    "serve": "^14.2.0",
-    "start-server-and-test": "^2.0.0"
+    "start-server-and-test": "^2.0.0",
+    "@fastify/static": "^6.10.2",
+    "fastify": "^4.18.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
+    "serve": "^14.2.0"
   }
 }

@@ -7,3 +7,5 @@ Start the local site, measure its performance, and save report with one command:
 ```
 $ npm run measure
 ```
+
+![Lighthouse report](./images/report.png)
