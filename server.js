@@ -8,7 +8,7 @@ const styles = fs.readFileSync(path.join(publicFolder, 'style.css'), 'utf8')
 fastify.get('/', (request, reply) => {
   setTimeout(() => {
     reply.type('text/html').send(indexDoc)
-  }, 2000)
+  }, 1000)
 })
 
 fastify.get('/style.css', (request, reply) => {
