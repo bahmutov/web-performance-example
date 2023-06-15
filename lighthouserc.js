@@ -4,11 +4,11 @@ module.exports = {
       url: ['http://localhost:3003/'],
       startServerCommand: 'npm start',
       settings: {
-        'budget-path': 'budget.json',
+        budgetPath: 'budget.json',
         preset: 'desktop',
-        'only-categories': 'performance',
-        'max-wait-for-load': 6000,
-        'skip-audits': true,
+        onlyCategories: 'performance',
+        maxWaitForLoad: 6000,
+        skipAudits: true,
       },
     },
     upload: {
