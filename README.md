@@ -1,4 +1,4 @@
-# web-performance-example
+# web-performance-example [![performance](https://github.com/bahmutov/web-performance-example/actions/workflows/performance.yml/badge.svg?branch=main)](https://github.com/bahmutov/web-performance-example/actions/workflows/performance.yml)
 
 > Playing with web performance metrics
 
