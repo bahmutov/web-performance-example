@@ -8,7 +8,6 @@ module.exports = {
         preset: 'desktop',
         onlyCategories: 'performance',
         maxWaitForLoad: 6000,
-        skipAudits: true,
       },
     },
     upload: {
