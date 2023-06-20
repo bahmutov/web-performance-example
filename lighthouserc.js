@@ -14,6 +14,7 @@ module.exports = {
     upload: {
       // target: 'temporary-public-storage',
       target: 'filesystem',
+      reportFilenamePattern: 'lighthouse-report',
     },
     assert: {
       assertions: {
