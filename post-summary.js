@@ -14,10 +14,10 @@ const metrics = [
  * @param {number} score from 1 to 100
  */
 function evalEmoji(score) {
-  if (score >= 90) {
+  if (score >= 0.9) {
     return '🟢'
   }
-  if (score >= 50) {
+  if (score >= 0.5) {
     return '🟧'
   }
   return '🔺'
