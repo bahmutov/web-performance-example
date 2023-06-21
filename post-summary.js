@@ -11,7 +11,7 @@ const metrics = [
 
 /**
  * Returns a symbol for the score.
- * @param {number} score from 1 to 100
+ * @param {number} score from 0 to 1
  */
 function evalEmoji(score) {
   if (score >= 0.9) {
