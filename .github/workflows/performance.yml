@@ -27,6 +27,8 @@ jobs:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
       - name: List files 💾
         run: ls -la
+      - name: Post job summary 📊
+        run: node ./post-summary
       - name: Save LH reports 💾
         uses: actions/upload-artifact@v3
         with:

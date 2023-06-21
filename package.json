@@ -15,12 +15,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lighthouse": "^10.3.0",
-    "start-server-and-test": "^2.0.0",
+    "@actions/core": "^1.10.0",
     "@fastify/static": "^6.10.2",
     "fastify": "^4.18.0",
+    "lighthouse": "^10.3.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
-    "serve": "^14.2.0"
+    "serve": "^14.2.0",
+    "start-server-and-test": "^2.0.0"
   }
 }
