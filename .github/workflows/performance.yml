@@ -28,15 +28,14 @@ jobs:
       - name: Post job summary 📊
         run: node ./post-summary
 
-      - name: Lighthouse assertions
-        run: lhci assert
-
       - name: Lighthouse checks
         run: lhci upload
-        if: always()
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
+
+      - name: Lighthouse assertions
+        run: lhci assert
 
       - name: Save LH reports 💾
         uses: actions/upload-artifact@v3
