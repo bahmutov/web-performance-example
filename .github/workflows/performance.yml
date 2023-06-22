@@ -18,19 +18,26 @@ jobs:
           node-version: 18.x
       - name: Install 📦
         run: npm install
+      # https://github.com/GoogleChrome/lighthouse-ci
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.11.x
-          lhci autorun
+          lhci collect
+      - name: List files 💾
+        run: ls -la
+      - name: Post job summary 📊
+        run: node ./post-summary
+
+      - name: Lighthouse assertions
+        run: lhci assert
+
+      - name: Lighthouse checks
+        run: lhci upload
+        if: always()
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
-      - name: List files 💾
-        run: ls -la
-        if: always()
-      - name: Post job summary 📊
-        run: node ./post-summary
-        if: always()
+
       - name: Save LH reports 💾
         uses: actions/upload-artifact@v3
         if: always()

@@ -27,7 +27,8 @@ const rows = []
 
 metrics.forEach((key) => {
   const audit = results.audits[key]
-  rows.push([audit.title, audit.displayValue, evalEmoji(audit.score)])
+  // be safe and always push strings
+  rows.push([audit.title, String(audit.displayValue), evalEmoji(audit.score)])
 })
 
 console.table(rows)
