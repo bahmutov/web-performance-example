@@ -47,6 +47,7 @@ jobs:
           --sha ${{ github.event.pull_request.head.sha }}
         env:
           PERSONAL_GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
+          DEBUG: lhci-gha
 
       - name: Print GITHUB variables 🖨️
         run: npx @bahmutov/print-env GITHUB
