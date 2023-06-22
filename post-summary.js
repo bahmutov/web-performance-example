@@ -31,10 +31,19 @@ metrics.forEach((key) => {
   rows.push([audit.title, String(audit.displayValue), evalEmoji(audit.score)])
 })
 
+// add the final performance score
+const performanceAudit = results.categories.performance
+const performance = performanceAudit.score * 100
+rows.push([
+  performanceAudit.title,
+  String(performance),
+  evalEmoji(performanceAudit.score),
+])
+
 console.table(rows)
 
 ghCore.summary
-  .addHeading('Lighthouse Performance')
+  .addHeading(`Lighthouse Performance ${performance}`)
   .addTable([
     [
       { data: 'Metric', header: true },
