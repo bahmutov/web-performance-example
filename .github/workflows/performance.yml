@@ -26,20 +26,20 @@ jobs:
       - name: List files 💾
         run: ls -la
 
-      - name: Lighthouse checks
+      - name: Save reports 💾
         run: lhci upload
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
 
-      - name: Save LH reports 💾
+      - name: Upload reports ⏫
         uses: actions/upload-artifact@v3
         with:
           name: lighthouse
           path: lighthouse-results.*
 
-      - name: Post job summary 📊
+      - name: Post performance summary 📊
         run: node ./post-summary
 
-      - name: Lighthouse assertions
+      - name: Lighthouse assertions ✅
         run: lhci assert
