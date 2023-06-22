@@ -25,8 +25,6 @@ jobs:
           lhci collect
       - name: List files 💾
         run: ls -la
-      - name: Post job summary 📊
-        run: node ./post-summary
 
       - name: Lighthouse checks
         run: lhci upload
@@ -34,12 +32,14 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
 
-      - name: Lighthouse assertions
-        run: lhci assert
-
       - name: Save LH reports 💾
         uses: actions/upload-artifact@v3
-        if: always()
         with:
           name: lighthouse
           path: lighthouse-results.*
+
+      - name: Post job summary 📊
+        run: node ./post-summary
+
+      - name: Lighthouse assertions
+        run: lhci assert
