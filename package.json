@@ -17,6 +17,8 @@
   "devDependencies": {
     "@actions/core": "^1.10.0",
     "@fastify/static": "^6.10.2",
+    "arg": "^5.0.2",
+    "debug": "^4.3.4",
     "fastify": "^4.18.0",
     "got": "^11.8.6",
     "lighthouse": "^10.3.0",
