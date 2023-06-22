@@ -38,6 +38,9 @@ jobs:
           name: lighthouse
           path: lighthouse-results.*
 
+      - name: Print GITHUB variables 🖨️
+        run: npx @bahmutov/print-env GITHUB
+
       - name: Post performance summary 📊
         run: node ./post-summary
 
@@ -48,9 +51,6 @@ jobs:
         env:
           PERSONAL_GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
           DEBUG: lhci-gha
-
-      - name: Print GITHUB variables 🖨️
-        run: npx @bahmutov/print-env GITHUB
 
       - name: Lighthouse assertions ✅
         run: lhci assert
