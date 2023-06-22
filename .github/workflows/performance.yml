@@ -41,5 +41,8 @@ jobs:
       - name: Post performance summary 📊
         run: node ./post-summary
 
+      - name: Print GITHUB variables 🖨️
+        run: npx @bahmutov/print-env GITHUB
+
       - name: Lighthouse assertions ✅
         run: lhci assert
