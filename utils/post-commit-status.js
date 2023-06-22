@@ -119,10 +119,14 @@ checkEnvVariables(process.env)
 const performance = getPerformance('./lighthouse-results.json')
 console.log('posting performance score %d', performance)
 
+// read the owner and the repo from the environment variable
+const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+const commitSha = process.env.GITHUB_SHA
+
 const options = {
-  owner: args['--owner'],
-  repo: args['--repo'],
-  commit: args['--commit'],
+  owner: args['--owner'] || owner,
+  repo: args['--repo'] || repo,
+  commit: args['--commit'] || commitSha,
   // status fields
   status: args['--status'],
   description: args['--description'] || 'Fast enough',
