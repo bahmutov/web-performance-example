@@ -2,6 +2,7 @@ const arg = require('arg')
 const got = require('got')
 const debug = require('debug')('lhci-gha')
 const { getPerformance } = require('./read-report')
+const { evalEmoji100 } = require('./emoji')
 
 const args = arg({
   '--owner': String,
@@ -137,12 +138,14 @@ const envOptions = {
   token: process.env.GITHUB_TOKEN || process.env.PERSONAL_GH_TOKEN,
 }
 
+const performanceEmoji = evalEmoji100(performance)
+
 if (performance < args['--min']) {
   options.status = 'failed'
-  options.description = `Performance ${performance} is worse than minimum ${args['--min']}`
+  options.description = `Performance ${performance} ${performanceEmoji} is worse than minimum ${args['--min']}`
 } else {
   options.status = 'success'
-  options.description = `Performance ${performance}`
+  options.description = `Performance ${performance} ${performanceEmoji}`
 }
 
 if (!validStatuses.includes(options.status)) {

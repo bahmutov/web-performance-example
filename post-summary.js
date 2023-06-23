@@ -1,5 +1,7 @@
+// @ts-check
 const ghCore = require('@actions/core')
 const results = require('./lighthouse-results.json')
+const { evalEmojiUnit } = require('./utils/emoji')
 const metrics = [
   'first-contentful-paint',
   'interactive',
@@ -9,26 +11,16 @@ const metrics = [
   'cumulative-layout-shift',
 ]
 
-/**
- * Returns a symbol for the score.
- * @param {number} score from 0 to 1
- */
-function evalEmoji(score) {
-  if (score >= 0.9) {
-    return '🟢'
-  }
-  if (score >= 0.5) {
-    return '🟧'
-  }
-  return '🔺'
-}
-
 const rows = []
 
 metrics.forEach((key) => {
   const audit = results.audits[key]
   // be safe and always push strings
-  rows.push([audit.title, String(audit.displayValue), evalEmoji(audit.score)])
+  rows.push([
+    audit.title,
+    String(audit.displayValue),
+    evalEmojiUnit(audit.score),
+  ])
 })
 
 // add the final performance score
@@ -37,7 +29,7 @@ const performance = performanceAudit.score * 100
 rows.push([
   performanceAudit.title,
   String(performance),
-  evalEmoji(performanceAudit.score),
+  evalEmojiUnit(performanceAudit.score),
 ])
 
 console.table(rows)
