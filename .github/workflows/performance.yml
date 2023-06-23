@@ -48,7 +48,7 @@ jobs:
         run: |
           node ./utils/post-commit-status \
             --owner bahmutov --repo web-performance-example \
-            --commit ${{ github.event.pull_request.head.sha }}
+            --commit ${{ github.event.pull_request.head.sha || github.sha }}
         env:
           PERSONAL_GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
           DEBUG: lhci-gha
