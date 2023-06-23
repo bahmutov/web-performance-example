@@ -138,15 +138,16 @@ const envOptions = {
   token: process.env.GITHUB_TOKEN || process.env.PERSONAL_GH_TOKEN,
 }
 
-const performanceEmoji = evalEmoji100(performance)
-
 if (performance < args['--min']) {
   options.status = 'failed'
-  options.description = `Performance ${performance} ${performanceEmoji} is worse than minimum ${args['--min']}`
+  options.description = `Performance ${performance}is worse than minimum ${args['--min']}`
 } else {
   options.status = 'success'
-  options.description = `Performance ${performance} ${performanceEmoji}`
+  options.description = `Performance ${performance}`
 }
+
+const performanceEmoji = evalEmoji100(performance)
+console.log(`%s %s`, options.description, performanceEmoji)
 
 if (!validStatuses.includes(options.status)) {
   throw new Error(`invalid status ${options.status}`)
