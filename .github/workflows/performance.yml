@@ -41,6 +41,8 @@ jobs:
       - name: Print GITHUB variables 🖨️
         run: npx @bahmutov/print-env GITHUB
 
+      # post performance summary and set the commit status
+      # https://github.com/bahmutov/lhci-gha
       - name: Post performance summary 📊
         run: npx post-summary --report-filename lighthouse-results.json
 
