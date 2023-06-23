@@ -17,10 +17,8 @@
   "devDependencies": {
     "@actions/core": "^1.10.0",
     "@fastify/static": "^6.10.2",
-    "arg": "^5.0.2",
-    "debug": "^4.3.4",
     "fastify": "^4.18.0",
-    "got": "^11.8.6",
+    "lhci-gha": "^1.0.0",
     "lighthouse": "^10.3.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8",
