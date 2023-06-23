@@ -42,11 +42,11 @@ jobs:
         run: npx @bahmutov/print-env GITHUB
 
       - name: Post performance summary 📊
-        run: node ./post-summary
+        run: npx post-summary --report-filename lighthouse-results.json
 
       - name: Post performance commit status ✅
         run: |
-          node ./utils/post-commit-status \
+          npx post-status \
             --owner bahmutov --repo web-performance-example \
             --commit ${{ github.event.pull_request.head.sha || github.sha }}
         env:
