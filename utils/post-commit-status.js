@@ -145,4 +145,7 @@ if (performance < args['--min']) {
   options.description = `Performance ${performance}`
 }
 
+if (!validStatuses.includes(options.status)) {
+  throw new Error(`invalid status ${options.status}`)
+}
 setGitHubCommitStatus(options, envOptions)
