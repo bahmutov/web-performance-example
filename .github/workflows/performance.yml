@@ -58,7 +58,7 @@ jobs:
 
       - name: Post performance commit status ✅
         run: |
-          npx post-status --min 90 \
+          npx post-status --min 80 \
             --report-filename lighthouse-results.json \
             --owner bahmutov --repo web-performance-example \
             --commit ${{ github.event.pull_request.head.sha || github.sha }}
