@@ -50,7 +50,7 @@ jobs:
         run: npx post-summary --report-filename lighthouse-results.json
 
       - name: Post performance comment 📝
-        if: github.event.action == 'pull_request'
+        if: github.event.pull_request
         run: |
           npx post-comment \
             --report-filename lighthouse-results.json \
