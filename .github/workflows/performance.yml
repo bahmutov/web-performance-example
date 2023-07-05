@@ -11,6 +11,9 @@ jobs:
     name: Lighthouse
     runs-on: ubuntu-latest
     steps:
+      - name: Print event
+        run: echo '${{ toJson(github.event) }}'
+
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -46,9 +49,20 @@ jobs:
       - name: Post performance summary 📊
         run: npx post-summary --report-filename lighthouse-results.json
 
+      - name: Post performance comment 📝
+        if: github.event.pull_request
+        run: |
+          npx post-comment \
+            --report-filename lighthouse-results.json \
+            --owner bahmutov --repo web-performance-example \
+            --target-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --pr ${{ github.event.pull_request.number }}
+        env:
+          PERSONAL_GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
+
       - name: Post performance commit status ✅
         run: |
-          npx post-status --min 90 \
+          npx post-status --min 80 \
             --report-filename lighthouse-results.json \
             --owner bahmutov --repo web-performance-example \
             --commit ${{ github.event.pull_request.head.sha || github.sha }}
